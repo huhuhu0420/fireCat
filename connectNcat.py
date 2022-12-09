@@ -1,6 +1,4 @@
-import subprocess
 import pexpect
-from pexpect import popen_spawn
 import sys
 import time
 
