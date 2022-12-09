@@ -18,3 +18,6 @@
 * bug fix
   * self user code not correct
 * switch txt(json) to db
+
+## architecture
+![](./architecture.jpg)
