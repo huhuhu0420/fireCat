@@ -1,0 +1,105 @@
+{
+  "type": "newConnected",
+  "attribute": "announce",
+  "user": "6"
+}{
+  "type": "alreadyConnected",
+  "attribute": "announce",
+  "user": "5"
+}{
+  "content": "dsfda",
+  "attribute": "user",
+  "user": 0
+}{
+  "content": "fdsfsadd",
+  "attribute": "user",
+  "user": 0
+}{
+  "content": "fad",
+  "attribute": "user",
+  "user": 0
+}{
+  "type": "disconnected",
+  "attribute": "announce",
+  "user": "5"
+}{
+  "content": "fad",
+  "attribute": "user",
+  "user": 0
+}{
+  "content": "fdsa",
+  "attribute": "user",
+  "user": 0
+}{
+  "type": "newConnected",
+  "attribute": "announce",
+  "user": "5"
+}{
+  "type": "alreadyConnected",
+  "attribute": "announce",
+  "user": "6"
+}{
+  "content": "fdsa",
+  "attribute": "user",
+  "user": 0
+}{
+  "content": "user6",
+  "attribute": "user",
+  "user": 0
+}{
+  "content": "fdsfds",
+  "attribute": "user",
+  "user": 0
+}{
+  "content": "fdsfds",
+  "attribute": "user",
+  "user": 0
+}{
+  "content": "fdsa",
+  "attribute": "user",
+  "user": 0
+}{
+  "content": "fdsa",
+  "attribute": "user",
+  "user": 0
+}{
+  "content": "fdsa",
+  "attribute": "user",
+  "user": 0
+}{
+  "content": "llll",
+  "attribute": "user",
+  "user": 0
+}{
+  "content": "fdsa",
+  "attribute": "user",
+  "user": 0
+}{
+  "content": "fdsa",
+  "attribute": "user",
+  "user": 0
+}{
+  "content": "dfaads",
+  "attribute": "user",
+  "user": 0
+}{
+  "content": "fdsa",
+  "attribute": "user",
+  "user": 0
+}{
+  "content": "fdsa",
+  "attribute": "user",
+  "user": 0
+}{
+  "content": "fd",
+  "attribute": "user",
+  "user": 0
+}{
+  "content": "ppf",
+  "attribute": "user",
+  "user": 0
+}{
+  "type": "disconnected",
+  "attribute": "announce",
+  "user": "5"
+}
