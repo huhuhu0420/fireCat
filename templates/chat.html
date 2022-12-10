@@ -1,13 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+  <title>firecat</title>
 </head>
+
 <body>
   <h1>chat</h1>
-  <form action="/chat" method="post">
-      <h2>Enter Chat:</h2>
-      <p><input type="text" name="user" /></p>
-      <p><input type="submit" value="submit" /></p>
-  </form>
+  <h2>Enter Chat:</h2>
+
+  <dir>
+    <p><input type="text" name="user" id="input" /></p>
+    <p><button id="submit" />submit</p>
+  </dir>
 </body>
+<script>
+  function send() {
+    console.log("send")
+    let text = document.querySelector("#input").value
+    let data = {
+      "text": text,
+      "name": "client1",
+    }
+    console.log(data)
+    let xhr = new XMLHttpRequest()
+    xhr.open("POST", "/post")
+    xhr.setRequestHeader('Content-type', 'application/json');
+    xhr.send(JSON.stringify(data))
+  }
+  function update() {
+    console.log("update")
+    let xhr = new XMLHttpRequest()
+    xhr.open("GET", "/get")
+    xhr.send()
+    xhr.onload = (data) => {
+      console.log(xhr.response);
+    };
+  }
+  document.querySelector("#submit").addEventListener("click", send)
+  setInterval(update, 2000);
+</script>
+
 </html>
