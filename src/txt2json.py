@@ -1,5 +1,6 @@
 import time
 import json
+import sys
 
 def follow (thefile):
     thefile.seek(0, 2)
@@ -21,12 +22,12 @@ def getUserCodeList (line: str) -> str:
     userCode = ' '.join(userCodeList)
     return userCode
 
-def analyze (line: str) -> None:
+def analyze (line: str ,fileName:str) -> None:
     outDict = dict()
     global selfCode
     attribute = str()
     user = str()
-    with open("1.json", "a") as outFile:
+    with open(fileName, "a") as outFile:
         # self message
         if (line[0] != '<'):
             attribute = 'user'
@@ -59,17 +60,25 @@ def clearFile (fileName: str) -> None:
 
 selfCode = 0
 if __name__ == '__main__':
-    clearFile("1.json")
+    arg=sys.argv[1:]
+    if(len(arg)<2):
+        print("error with arg\n")
+        sys.exit()
+
+    srcFile=arg[0]
+    targetFile=arg[1]
+    print(arg)
+    clearFile(arg[1])
     first = 1
-    with open("1.txt", "r") as logfile:
+    with open(targetFile, "r") as logfile:
         titles = logfile.readlines()
         for title in titles:
             if first == 1:  # get self code
                 selfCode = getUserCodeList(title)
                 first = 0
             print(title)
-            analyze(title)
+            analyze(title,targetFile)
         loglines = follow(logfile)
         for line in loglines:
             print(line)
-            analyze(line)
+            analyze(line,targetFile)
