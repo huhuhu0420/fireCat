@@ -70,7 +70,7 @@ if __name__ == '__main__':
     print(arg)
     clearFile(arg[1])
     first = 1
-    with open(targetFile, "r") as logfile:
+    with open(srcFile, "r") as logfile:
         titles = logfile.readlines()
         for title in titles:
             if first == 1:  # get self code

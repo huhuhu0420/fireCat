@@ -5,13 +5,11 @@ app = Flask(__name__)
 
 @app.route("/",methods=["GET"])
 def main():
-    tem="404"
-    with open ('./templates/chat.html', 'r') as file:
-        tem=file.read()
-    return tem 
+    return render_template("chat.html")
+
 @app.route("/hello")
 def hello():
-    return render_template('./templates/hello.html')
+    return render_template('hello.html')
 
 @app.route('/chat', methods=[ 'GET',"POST"])
 def chatPage():
