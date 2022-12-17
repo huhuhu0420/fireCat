@@ -54,13 +54,9 @@ def analyze (line: str ,fileName:str) -> None:
 
     db.insert(outDict)
 
-def clearFile (fileName: str) -> None:
-    open(fileName, "w").close()
-
 selfCode = '0'
 if __name__ == '__main__':
     db = TinyDB('1.json')  # init db
-
     arg=sys.argv[1:]
     if(len(arg)<2):
         print("error with arg\n")
@@ -69,7 +65,6 @@ if __name__ == '__main__':
     srcFile=arg[0]
     targetFile=arg[1]
     # print(arg)
-    clearFile(arg[1])
     first = 1
     with open(srcFile, "r") as logfile:
         titles = logfile.readlines()

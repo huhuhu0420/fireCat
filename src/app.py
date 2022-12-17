@@ -1,9 +1,21 @@
 from requests import request
 from flask import Flask, request, render_template, redirect, url_for
 import json
+from tinydb import TinyDB
 app = Flask(__name__)
 
-@app.route("/",methods=["GET"])
+@app.route("/",methods=["GET", "POST"])
+def loginPage ():
+    if request.method == 'POST':
+        ip = request.form['ip']
+        print("post : ip => ", ip)
+        ipData = {"ip":ip}
+        db.insert(ipData)
+        return render_template("chat.html")
+    if request.method == 'GET':
+        return render_template("login.html")
+    
+
 @app.route('/chat', methods=[ 'GET',"POST"])
 def chatPage():
     return render_template("chat.html")
@@ -43,4 +55,5 @@ def getInfo():
     return response 
 
 if __name__ == '__main__':
+    db = TinyDB('1.json')  # init db
     app.run()
