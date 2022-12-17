@@ -18,33 +18,41 @@ def getIp () -> str:
     try:
         result = db.search(where("ip") != "")
         ip = [r['ip'] for r in result][0]
-        print(ip)
     except RuntimeError:
         ip =  ""
     except IndexError:
         ip = ""
     return ip
 
+def clearFile (fileName: str) -> None:
+    open(fileName, "w").close()
+
 if __name__ == '__main__':
     fileName="1.txt"
+    clearFile("chat.txt")
     db = TinyDB('1.json')  # init db
-    db.truncate()
+    db.truncate()  # clear db
+    # open flask web
     web = pexpect.spawnu('python3 src/app.py')
     web.timeout = 300
     #print(web.read())
 
+    # open firefox
     time.sleep(0.5)
     firefox = pexpect.spawnu("firefox 127.0.0.1:5000/")
     
+    # get ip
     ip = ""
     while (ip == ""):
         ip = getIp()
     # print(ip)
 
+    # connect ncat
     child = pexpect.spawnu('ncat ' + ip + ' 1234 -o '+fileName)
     child.timeout = 300   # avoid timeout too quick 
     # print(child.read())
 
+    # txt to json
     test = pexpect.spawnu('python3 src/txt2json.py '+fileName+' 1.json')
     test.timeout = 300
     # # print(test.read())

@@ -54,9 +54,6 @@ def analyze (line: str ,fileName:str) -> None:
 
     db.insert(outDict)
 
-def clearFile (fileName: str) -> None:
-    open(fileName, "w").close()
-
 selfCode = '0'
 if __name__ == '__main__':
     db = TinyDB('1.json')  # init db
