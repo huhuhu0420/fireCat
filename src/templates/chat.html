@@ -3,21 +3,23 @@
 
 <head>
   <title>firecat</title>
-  <link rel="stylesheet" href="chat.css">
+  <link rel="stylesheet" href="../static/chat.css">
 </head>
 
 <body>
-  <h1>chat</h1>
-  <h2>Enter Chat:</h2>
-  <ul id="context">
-
-
-  </ul>
-
+  <img src="{{url_for('static', filename='chattitle.png')}}" />
   <ul>
     <p><input type="text" name="user" id="input" /></p>
-    <p><button id="submit" />submit</p>
+    <p><button id="submit">submit</button></p>
   </ul>
+  <div class='chatroom'>
+
+    <ul id="context">
+
+
+    </ul>
+
+  </div>
 </body>
 <script>
   function send() {
@@ -43,9 +45,16 @@
       console.log(data)
       let block = document.querySelector("#context")
       block.innerHTML = ""
+
       data.forEach(element => {
+        buf = ''
         for (const key in element) {
-          block.innerHTML += "<li>" + key + ":" + element[key] + "</li>"
+          if (key == 'text') {
+            block.innerHTML += "<li >" + "<h3>" + element[key] + buf;
+          } else {
+            buf += " - " + element[key] + "</h3 " + "</li > ";
+            buf += '<li class="text">1.2. 什麼是GNU/Linux？ ... 作業系統由許多基礎程式組成，它們是讓電腦接受使用者指令並與之溝通的必要程式；讀取資料或將其寫入硬碟、磁帶或印表機；控制記憶體的使用； ...</li>'
+          }
         }
       });
     };

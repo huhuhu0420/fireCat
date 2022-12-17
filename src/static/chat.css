@@ -1,0 +1,33 @@
+@media screen and (min-width: 480px) {
+    body {
+        background-color: #202124;
+        width: 90vw;
+        height: 90vh;
+        color: #bdc1c6;
+    }
+
+
+    div.chatroom {
+        margin-left: 200px;
+        width: 50vw;
+    }
+
+    h3 {
+        color: #8ab4f8;
+        font-family: arial, sans-serif;
+        font-size: 20px;
+        font-weight: 400;
+        padding-top: 5px;
+    }
+
+    li {
+        list-style-type: none;
+    }
+
+    li.text {
+        font-family: arial, sans-serif;
+        font-size: 14px;
+        margin-top: 6px;
+    }
+
+}
