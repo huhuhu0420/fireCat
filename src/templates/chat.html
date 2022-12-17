@@ -3,20 +3,21 @@
 
 <head>
   <title>firecat</title>
+  <link rel="stylesheet" href="chat.css">
 </head>
 
 <body>
   <h1>chat</h1>
   <h2>Enter Chat:</h2>
-  <dir id="context">
+  <ul id="context">
 
 
-  </dir>
+  </ul>
 
-  <dir>
+  <ul>
     <p><input type="text" name="user" id="input" /></p>
     <p><button id="submit" />submit</p>
-  </dir>
+  </ul>
 </body>
 <script>
   function send() {
@@ -44,7 +45,7 @@
       block.innerHTML = ""
       data.forEach(element => {
         for (const key in element) {
-          block.innerHTML += key + ":" + element[key] + "\n"
+          block.innerHTML += "<li>" + key + ":" + element[key] + "</li>"
         }
       });
     };
