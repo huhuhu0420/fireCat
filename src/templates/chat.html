@@ -7,11 +7,34 @@
 </head>
 
 <body>
-  <img src="{{url_for('static', filename='chattitle.png')}}" />
-  <ul>
-    <p><input type="text" name="user" id="input" /></p>
-    <p><button id="submit">submit</button></p>
-  </ul>
+  <div class="upbar">
+
+    <div class="logoAndInput">
+
+      <div class="logo">
+        <a href="https://www.google.com/webhp?hl=zh-TW&amp;sa=X&amp;ved=0ahUKEwji76by_Yf8AhXVO3AKHQLHDdIQPAgI"
+          title="Google 首頁" id="logo" data-hveid="8">
+          <div class="logoImg">
+
+            <img class="jfN4p"
+              src="https://www.google.com/images/branding/googlelogo/2x/googlelogo_light_color_92x30dp.png"
+              style="background:none" alt="Google" height="30" width="92" data-atf="1" data-frt="0">
+          </div>
+        </a>
+      </div>
+      <div class="searchinput">
+
+        <input class="searchinput" type="text" name="user" id="input" />
+        <button class="submit" id="submit">
+          <img src="https://icons8.com/icon/7695/search" style="background:transparent" alt="Google" height="30"
+            width="92" data-atf="1" data-frt="0">
+
+          </a></button>
+      </div>
+    </div>
+  </div>
+  <!-- /<img src="{{url_for('static', filename='chattitle.png')}}" /> -->
+  <br>
   <div class='chatroom'>
 
     <ul id="context">
