@@ -1,73 +1,56 @@
     body {
         background-color: #202124;
-        width: 90vw;
-        height: 90vh;
         color: #bdc1c6;
+        display: flex;
+        flex-direction: column;
+        font-family: arial, sans-serif;
+    }
+
+
+    div.upbar {
+
+        margin-top: 20px;
+        display: flex;
+        flex-direction: column;
+        width: 100vw;
+        height: 10vh;
+        position: sticky;
+
+
     }
 
     div.logoAndInput {
-        font-family: arial, sans-serif;
-        font-size: 14px;
-        color: #bdc1c6;
-        --center-abs-margin: 180px;
-        --grid-column-width: 36px;
-        --content-width: calc(var(--grid-column-width)*20 + 380px);
-        --center-width: calc(var(--grid-column-width)*12 + 220px);
-        --grid-gutter-width: 20px;
-        --rhs-width: calc(var(--grid-column-width)*7 + 120px);
-        --rhs-margin: calc(var(--content-width) - var(--center-width) - var(--rhs-width));
-        margin: 0 auto;
-        width: 692px;
-        margin-left: calc(var(--center-abs-margin) - 47px);
+        width: 70vw;
+        height: auto;
         position: relative;
-        padding-left: 27px;
-    }
-
-    div.upbar {
-        font-family: arial, sans-serif;
-        font-size: 14px;
-        color: #bdc1c6;
-        --center-abs-margin: calc(25vw + -184.75px);
-        --grid-column-width: 36px;
-        --content-width: calc(var(--grid-column-width)*20 + 380px);
-        --center-width: calc(var(--grid-column-width)*12 + 220px);
-        --grid-gutter-width: 20px;
-        --rhs-width: calc(var(--grid-column-width)*7 + 120px);
-        --rhs-margin: calc(var(--content-width) - var(--center-width) - var(--rhs-width));
-        background: #202124;
-        height: 69px;
-        left: 0;
-        position: absolute;
-        width: 100%;
-        margin-top: 20px;
-    }
-
-    button.submit {
-        --center-abs-margin: calc(25vw + -184.75px);
-        --grid-column-width: 36px;
-        --content-width: calc(var(--grid-column-width)*20 + 380px);
-        --center-width: calc(var(--grid-column-width)*12 + 220px);
-        --grid-gutter-width: 20px;
-        --rhs-width: calc(var(--grid-column-width)*7 + 120px);
-        --rhs-margin: calc(var(--content-width) - var(--center-width) - var(--rhs-width));
-        margin: 0;
-        height: 44px;
-        width: 44px;
-        background: transparent;
-        border: none;
-        cursor: pointer;
-        padding: 0;
-        flex: 0 0 auto;
-        padding-right: 13px;
-        outline: 0;
+        padding-left: 20px;
+        justify-content: left;
         display: flex;
-
+        flex-direction: row;
 
     }
+
+    div.logo {
+        width: 92px;
+        height: 30px;
+        margin-top: auto;
+        margin-bottom: auto;
+        padding-right: 30px;
+        padding-left: 28px;
+
+    }
+
+
 
     div.searchinput {
         flex-direction: row;
         display: flex;
+        width: 540px;
+        height: 46px;
+        background: #303134;
+        border: 1px solid transparent;
+        border-radius: 24px;
+        justify-content: space-between;
 
     }
 
@@ -75,88 +58,59 @@
         font-family: arial, sans-serif;
         font-size: 20px;
         color: #bdc1c6;
-        --center-abs-margin: calc(25vw + -184.75px);
-        --grid-column-width: 36px;
-        --content-width: calc(var(--grid-column-width)*20 + 380px);
-        --center-width: calc(var(--grid-column-width)*12 + 220px);
-        --grid-gutter-width: 20px;
-        --rhs-width: calc(var(--grid-column-width)*7 + 120px);
-        --rhs-margin: calc(var(--content-width) - var(--center-width) - var(--rhs-width));
-        display: flex;
-        z-index: 3;
-        height: 44px;
-        background: #303134;
         border: 1px solid transparent;
-        box-shadow: 0 1px 3px rgba(23, 23, 23, 0.24);
-        border-radius: 24px;
-        margin: 0 auto;
-        width: 690px;
+        margin-left: 20px;
+        background: #303134;
+        width: 380px;
     }
 
-    div.icon {
-        width: 10;
-        height: 10;
+    input.searchinput:focus {
+        outline: none;
     }
 
-    div.searchbar {
-        font-family: arial, sans-serif;
+
+    button.submit {
+        width: 30px;
+        font-size: 30px;
+        background: transparent;
+        margin-right: 20px;
+        border: none;
+        outline: 0;
+    }
+
+
+    div.searchType {
+        width: 446px;
+        height: 55px;
+        display: flex;
+        flex-direction: row;
+        margin-top: 20px;
+
+    }
+
+    button.searchType {
+        font-family: Google Sans, arial, sans-serif;
+        width: 71px;
+        height: 16px;
+        padding: 10 10 10 10;
+
         font-size: 14px;
         color: #bdc1c6;
-        --center-abs-margin: calc(25vw + -184.75px);
-        --grid-column-width: 36px;
-        --content-width: calc(var(--grid-column-width)*20 + 380px);
-        --center-width: calc(var(--grid-column-width)*12 + 220px);
-        --grid-gutter-width: 20px;
-        --rhs-width: calc(var(--grid-column-width)*7 + 120px);
-        --rhs-margin: calc(var(--content-width) - var(--center-width) - var(--rhs-width));
+        background: transparent;
+        border: none;
+        outline: 0;
+
+    }
+
+
+
+
+
+    div.context {
+        top: 100px;
+
         display: flex;
-        z-index: 3;
-        height: 44px;
-        background: #303134;
-        border: 1px solid transparent;
-        box-shadow: 0 1px 3px rgba(23, 23, 23, 0.24);
-        border-radius: 24px;
-        margin: 0 auto;
-        width: 690px;
-    }
-
-    div.logo {
-        font-family: arial, sans-serif;
-        font-size: 14px;
-        color: #bdc1c6;
-        --center-abs-margin: 180px;
-        --grid-column-width: 36px;
-        --content-width: calc(var(--grid-column-width)*20 + 380px);
-        --center-width: calc(var(--grid-column-width)*12 + 220px);
-        --grid-gutter-width: 20px;
-        --rhs-width: calc(var(--grid-column-width)*7 + 120px);
-        --rhs-margin: calc(var(--content-width) - var(--center-width) - var(--rhs-width));
-        position: absolute;
-        left: -139px;
-        padding: 4px 28px 0 30px;
-        top: 6px;
-        width: 100px;
-
-    }
-
-    div.logoImg {
-        font-family: arial, sans-serif;
-        font-size: 14px;
-        --center-abs-margin: 180px;
-        --grid-column-width: 36px;
-        --content-width: calc(var(--grid-column-width)*20 + 380px);
-        --center-width: calc(var(--grid-column-width)*12 + 220px);
-        --grid-gutter-width: 20px;
-        --rhs-width: calc(var(--grid-column-width)*7 + 120px);
-        --rhs-margin: calc(var(--content-width) - var(--center-width) - var(--rhs-width));
-        color: #8ab4f8;
-        -webkit-tap-highlight-color: rgba(255, 255, 255, .1);
-        height: 30px;
-        aspect-ratio: auto 92 / 30;
-        width: 92px;
-        filter: none;
-        border: 0;
-        background: none;
+        position: relative;
     }
 
 
