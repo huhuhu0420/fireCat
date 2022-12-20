@@ -28,36 +28,64 @@
     <div class="searchType">
       <a href="https://www.youtube.com/watch?v=XA-D0jY0Z9w">
         <button class="searchType">
-          🔍全部
+          <svg focusable="false" viewBox="0 0 24 24">
+            <path fill="#34a853" d="M10 2v2a6 6 0 0 1 6 6h2a8 8 0 0 0-8-8"></path>
+            <path fill="#ea4335" d="M10 4V2a8 8 0 0 0-8 8h2c0-3.3 2.7-6 6-6"></path>
+            <path fill="#fbbc04" d="M4 10H2a8 8 0 0 0 8 8v-2c-3.3 0-6-2.69-6-6"></path>
+            <path fill="#4285f4"
+              d="M22 20.59l-5.69-5.69A7.96 7.96 0 0 0 18 10h-2a6 6 0 0 1-6 6v2c1.85 0 3.52-.64 4.88-1.68l5.69 5.69L22 20.59">
+            </path>
+          </svg>
+          全部
         </button>
       </a>
       <a href="https://www.youtube.com/watch?v=XA-D0jY0Z9w">
         <button class="searchType">
-          🔍全部
+          <svg focusable="false" viewBox="0 0 24 24">
+            <path fill="#4285f4" d="M10 16.5l6-4.5-6-4.5"></path>
+            <path fill="#ea4335" d="M20 12h2v7.5a2.5 2.5 0 0 1-2.5 2.5H12v-2h7a1 1 0 0 0 1-1v-7"></path>
+            <path fill="#fbbc04" d="M20 12V5a1 1 0 0 0-1-1h-7V2h7.6A2.4 2.4 0 0 1 22 4.4V12h-2"></path>
+            <path fill="#34a853"
+              d="M12 20v2H5a3 3 0 0 1-3-3V4.4A2.4 2.4 0 0 1 4.4 2H12v2H5a1 1 0 0 0-1 1v14a1 1 0 0 0 1 1h7"></path>
+          </svg>
+          影片
         </button>
       </a>
       <a href="https://www.youtube.com/watch?v=XA-D0jY0Z9w">
         <button class="searchType">
-          🔍全部
+          <svg focusable="false" viewBox="0 0 24 24">
+            <path
+              d="M14 13l4 5H6l4-4 1.79 1.78L14 13zm-6.01-2.99A2 2 0 0 0 8 6a2 2 0 0 0-.01 4.01zM22 5v14a3 3 0 0 1-3 2.99H5c-1.64 0-3-1.36-3-3V5c0-1.64 1.36-3 3-3h14c1.65 0 3 1.36 3 3zm-2.01 0a1 1 0 0 0-1-1H5a1 1 0 0 0-1 1v14a1 1 0 0 0 1 1h7v-.01h7a1 1 0 0 0 1-1V5">
+            </path>
+          </svg>
+          地圖
         </button>
       </a>
       <a href="https://www.youtube.com/watch?v=XA-D0jY0Z9w">
         <button class="searchType">
-          🔍全部
+          <svg focusable="false" viewBox="0 0 24 24">
+            <path
+              d="M12 11h6v2h-6v-2zm-6 6h12v-2H6v2zm0-4h4V7H6v6zm16-7.22v12.44c0 1.54-1.34 2.78-3 2.78H5c-1.64 0-3-1.25-3-2.78V5.78C2 4.26 3.36 3 5 3h14c1.64 0 3 1.25 3 2.78zM19.99 12V5.78c0-.42-.46-.78-1-.78H5c-.54 0-1 .36-1 .78v12.44c0 .42.46.78 1 .78h14c.54 0 1-.36 1-.78V12zM12 9h6V7h-6v2">
+            </path>
+          </svg>
+          新聞
         </button>
       </a>
       <a href="https://www.youtube.com/watch?v=XA-D0jY0Z9w">
         <button class="searchType">
-          🔍全部
-        </button>
-      </a>
-      <a href="https://www.youtube.com/watch?v=XA-D0jY0Z9w">
-        <button class="searchType">
-          🔍全部
+          <svg focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path
+              d="M12 8c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm0 2c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0 6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z">
+            </path>
+          </svg>
+          更多
         </button>
       </a>
 
     </div>
+    <div class="splitLine"><br></div>
+    <div class="searchTime"> 約有 25,270,000,000 項結果 (搜尋時間：0.43 秒)  </div>
+
   </div>
   <!-- /<img src="{{url_for('static', filename='chattitle.png')}}" /> -->
   <div class='chatroom'>
@@ -98,10 +126,10 @@
         buf = ''
         for (const key in element) {
           if (key == 'text') {
-            block.innerHTML += "<li >" + "<h3>" + element[key] + buf;
+            block.innerHTML = "<li ><a href='https://www.youtube.com/watch?v=XA-D0jY0Z9w'> " + "<h3>" + element[key] + buf + block.innerHTML;
           } else {
-            buf += " - " + element[key] + "</h3 " + "</li > ";
-            buf += '<li class="text">1.2. 什麼是GNU/Linux？ ... 作業系統由許多基礎程式組成，它們是讓電腦接受使用者指令並與之溝通的必要程式；讀取資料或將其寫入硬碟、磁帶或印表機；控制記憶體的使用； ...</li>'
+            buf += " - " + element[key] + "</h3></a>" + "</li > ";
+            buf += '<li class="text">不好意思打斷你。你所說的Linux，事實是上GNU/Linux，或者我習慣叫他GNU+Linux。Linux本身並不是一個作業系統，而是功能齊全的GNU系統其中的一個自由組件，shell和其他重要的系統組件靠POSIX構成了完整作業系統...</li>'
           }
         }
       });

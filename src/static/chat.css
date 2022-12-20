@@ -9,11 +9,11 @@
 
     div.upbar {
 
+        margin-left: 30px;
         margin-top: 20px;
         display: flex;
         flex-direction: column;
         width: 100vw;
-        height: 10vh;
         position: sticky;
 
 
@@ -23,7 +23,6 @@
         width: 70vw;
         height: auto;
         position: relative;
-        padding-left: 20px;
         justify-content: left;
         display: flex;
         flex-direction: row;
@@ -36,7 +35,6 @@
         margin-top: auto;
         margin-bottom: auto;
         padding-right: 30px;
-        padding-left: 28px;
 
     }
 
@@ -81,18 +79,25 @@
 
     div.searchType {
         width: 446px;
-        height: 55px;
+        height: 35px;
         display: flex;
         flex-direction: row;
         margin-top: 20px;
+        margin-bottom: 10px;
 
+    }
+
+    svg {
+        height: 16px;
+        fill: currentColor;
     }
 
     button.searchType {
         font-family: Google Sans, arial, sans-serif;
         width: 71px;
-        height: 16px;
-        padding: 10 10 10 10;
+        height: 36px;
+        line-height: 20px;
+
 
         font-size: 14px;
         color: #bdc1c6;
@@ -103,22 +108,28 @@
     }
 
 
+    div.splitLine {
+        background: #303134;
+        height: 3px;
+    }
 
+    div.searchTime {
+        color: #9aa0a6;
+        line-height: 43px;
+        margin-left: 10px;
+        size: 14px;
+    }
 
 
     div.context {
-        top: 100px;
-
         display: flex;
-        position: relative;
     }
 
 
 
     div.chatroom {
+        max-width: 900px;
 
-        margin-left: 200px;
-        width: 50vw;
     }
 
     h3 {
