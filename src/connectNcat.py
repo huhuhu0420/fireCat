@@ -34,28 +34,30 @@ if __name__ == '__main__':
     db.truncate()  # clear db
     # open flask web
     web = pexpect.spawnu('python3 src/app.py')
-    web.timeout = 300
-    #print(web.read())
+    web.timeout = 3000
 
     # open firefox
     time.sleep(0.5)
     firefox = pexpect.spawnu("firefox 127.0.0.1:5000/")
+    firefox.timeout = 3000
     
     # get ip
     ip = ""
     while (ip == ""):
         ip = getIp()
-    # print(ip)
 
     # connect ncat
     child = pexpect.spawnu('ncat ' + ip + ' 1234 -o '+fileName)
-    child.timeout = 300   # avoid timeout too quick 
-    # print(child.read())
+    child.timeout = 3000   # avoid timeout too quick 
 
     # txt to json
     test = pexpect.spawnu('python3 src/txt2json.py '+fileName+' 1.json')
-    test.timeout = 300
-    # # print(test.read())
+    test.timeout = 3000
+
+    # if(web.isalive() and child.isalive() and test.isalive()):
+    #     db.insert({"status":"all alive"})
+    # else:
+    #     db.insert({"status":"dead"})
 
     with open("chat.txt", "r") as logfile:
         loglines = follow(logfile)

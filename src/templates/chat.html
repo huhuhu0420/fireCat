@@ -42,11 +42,13 @@
       console.log(data)
       let block = document.querySelector("#context")
       block.innerHTML = ""
-      data.forEach(element => {
-        for (const key in element) {
-          block.innerHTML += key + ":" + element[key] + "\n"
+      data=data["_default"]
+      for (const key in data) {
+        let element=data[key]
+        for (const key1 in element) {
+          block.innerHTML += key1 + ":" + element[key1] + "\n"
         }
-      });
+      }
     };
 
   }
