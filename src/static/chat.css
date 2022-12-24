@@ -1,0 +1,155 @@
+    body {
+        background-color: #202124;
+        color: #bdc1c6;
+        display: flex;
+        flex-direction: column;
+        font-family: arial, sans-serif;
+    }
+
+
+    div.upbar {
+
+        margin-left: 30px;
+        margin-top: 20px;
+        display: flex;
+        flex-direction: column;
+        width: 100vw;
+        position: sticky;
+
+
+    }
+
+    div.logoAndInput {
+        width: 70vw;
+        height: auto;
+        position: relative;
+        justify-content: left;
+        display: flex;
+        flex-direction: row;
+
+    }
+
+    div.logo {
+        width: 92px;
+        height: 30px;
+        margin-top: auto;
+        margin-bottom: auto;
+        padding-right: 30px;
+
+    }
+
+
+
+    div.searchinput {
+        flex-direction: row;
+        display: flex;
+        width: 540px;
+        height: 46px;
+        background: #303134;
+        border: 1px solid transparent;
+        border-radius: 24px;
+        justify-content: space-between;
+
+    }
+
+    input.searchinput {
+        font-family: arial, sans-serif;
+        font-size: 20px;
+        color: #bdc1c6;
+        border: 1px solid transparent;
+        margin-left: 20px;
+        background: #303134;
+        width: 380px;
+    }
+
+    input.searchinput:focus {
+        outline: none;
+    }
+
+
+    button.submit {
+        width: 30px;
+        font-size: 30px;
+        background: transparent;
+        margin-right: 20px;
+        border: none;
+        outline: 0;
+    }
+
+
+    div.searchType {
+        width: 446px;
+        height: 35px;
+        display: flex;
+        flex-direction: row;
+        margin-top: 20px;
+        margin-bottom: 10px;
+    }
+
+    div.searchType>a {
+        margin-right: 10px;
+    }
+
+    svg {
+        height: 20px;
+        fill: #bdc1c6;
+    }
+
+    button.searchType {
+        font-family: Google Sans, arial, sans-serif;
+        width: 71px;
+        height: 36px;
+        line-height: 20px;
+
+
+        font-size: 14px;
+        color: #bdc1c6;
+        background: transparent;
+        border: none;
+        outline: 0;
+
+        cursor: pointer;
+    }
+
+
+    div.splitLine {
+        background: #303134;
+        height: 3px;
+    }
+
+    div.searchTime {
+        color: #9aa0a6;
+        line-height: 43px;
+        margin-left: 10px;
+        size: 14px;
+    }
+
+
+    div.context {
+        display: flex;
+    }
+
+
+
+    div.chatroom {
+        max-width: 900px;
+
+    }
+
+    h3 {
+        color: #8ab4f8;
+        font-family: arial, sans-serif;
+        font-size: 20px;
+        font-weight: 400;
+        padding-top: 5px;
+    }
+
+    li {
+        list-style-type: none;
+    }
+
+    li.text {
+        font-family: arial, sans-serif;
+        font-size: 14px;
+        margin-top: 6px;
+    }
