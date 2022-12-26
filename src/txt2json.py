@@ -32,6 +32,7 @@ def analyze (line: str ,fileName:str) -> None:
         global selfCode
         user = selfCode
         content = line[:-1]
+        outDict['user'] = user 
         outDict['content'] = content
     # announce
     elif (line[1] == 'a'):
@@ -43,14 +44,15 @@ def analyze (line: str ,fileName:str) -> None:
         elif ("is disconnected" in line):
             outDict["type"] = "disconnected"
         user = getUserCodeList(line)
+        outDict['user'] = user 
     # other user message
     elif (line[1] == 'u'):
         user = line[5]
+        outDict['user'] = user 
         attribute = 'user'
         content = line[8:-1]
         outDict['content'] = content
     outDict['attribute'] = attribute
-    outDict['user'] = user 
 
     db.insert(outDict)
 

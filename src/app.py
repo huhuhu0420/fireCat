@@ -44,7 +44,7 @@ def pushInfo():
 @app.route('/get', methods=[ 'GET'])
 def getInfo():
     data=""
-    with open ('data.json', 'r+') as file:
+    with open ('1.json', 'r+') as file:
         data=file.read()
     response = app.response_class(
         # response=json.dumps(data),

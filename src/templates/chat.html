@@ -134,23 +134,26 @@
       block.innerHTML = ""
       let copyPastaIndex = 0;
 
-      data.forEach(element => {
+      data = data["_default"]
+      for (const key in data) {
+        let element = data[key];
         if (copyPastaIndex >= copyPasta.length) {
           copyPastaIndex = 0;
         }
 
         buf = ''
-        for (const key in element) {
-          if (key == 'text') {
-            block.innerHTML = "<li ><a href='https://www.youtube.com/watch?v=XA-D0jY0Z9w'> " + "<h3>" + element[key] + buf + block.innerHTML;
-          } else {
-            buf += " - " + element[key] + "</h3></a>" + "</li > ";
+        for (const key1 in element) {
+          if (key1 == 'content') {
+            block.innerHTML = "<li ><a href='https://www.youtube.com/watch?v=XA-D0jY0Z9w'> " + "<h3>" + element[key1] + buf + block.innerHTML;
+          } 
+          else if (key1 == 'user') {
+            buf += " -user " + element[key1] + "</h3></a>" + "</li > ";
             buf += '<li class="text">' + copyPasta[copyPastaIndex] + '</li>'
             copyPastaIndex += 1;
           }
 
         }
-      });
+      }
     };
 
   }
