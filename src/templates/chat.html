@@ -147,7 +147,7 @@
             block.innerHTML = "<li ><a href='https://www.youtube.com/watch?v=XA-D0jY0Z9w'> " + "<h3>" + element[key1] + buf + block.innerHTML;
           } 
           else if (key1 == 'user') {
-            buf += " -user " + element[key1] + "</h3></a>" + "</li > ";
+            buf += " -user" + element[key1] + "</h3></a>" + "</li > ";
             buf += '<li class="text">' + copyPasta[copyPastaIndex] + '</li>'
             copyPastaIndex += 1;
           }
@@ -158,7 +158,7 @@
 
   }
   document.querySelector("#submit").addEventListener("click", send)
-  setInterval(update, 100);
+  setInterval(update, 200);
 </script>
 
 </html>

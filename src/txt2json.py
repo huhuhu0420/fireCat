@@ -26,6 +26,7 @@ def analyze (line: str ,fileName:str) -> None:
     outDict = dict()
     attribute = str()
     user = str()
+    db = TinyDB('1.json')  # init db
     # self message
     if (line[0] != '<'):
         attribute = 'user'
@@ -53,7 +54,7 @@ def analyze (line: str ,fileName:str) -> None:
         content = line[8:-1]
         outDict['content'] = content
     outDict['attribute'] = attribute
-
+    print(outDict)
     db.insert(outDict)
 
 selfCode = '0'
@@ -66,13 +67,17 @@ if __name__ == '__main__':
 
     srcFile=arg[0]
     targetFile=arg[1]
-    # print(arg)
+    outDict = dict()
+    print(arg)
     first = 1
     with open(srcFile, "r") as logfile:
         titles = logfile.readlines()
         for title in titles:
             if first == 1:  # get self code
                 selfCode = getUserCodeList(title)
+                outDict["user"] = selfCode
+                outDict["content"] = "[WELCOME FIRECAT] YOU ARE"
+                db.insert(outDict)
                 first = 0
             print(title)
             analyze(title,targetFile)
@@ -80,6 +85,9 @@ if __name__ == '__main__':
         for line in loglines:
             if first == 1:  # get self code
                 selfCode = getUserCodeList(line)
+                outDict["user"] = selfCode
+                outDict["content"] = "[WELCOME FIRECAT] YOU ARE"
+                db.insert(outDict)
                 first = 0
             print(line)
             analyze(line,targetFile)
