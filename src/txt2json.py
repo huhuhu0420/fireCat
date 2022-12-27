@@ -1,7 +1,7 @@
 import time
 import json
 import sys
-from tinydb import TinyDB
+from tinydb import TinyDB, where
 
 def follow (thefile):
     thefile.seek(0, 2)
@@ -54,7 +54,6 @@ def analyze (line: str ,fileName:str) -> None:
         content = line[8:-1]
         outDict['content'] = content
     outDict['attribute'] = attribute
-    print(outDict)
     db.insert(outDict)
 
 selfCode = '0'
@@ -76,7 +75,7 @@ if __name__ == '__main__':
             if first == 1:  # get self code
                 selfCode = getUserCodeList(title)
                 outDict["user"] = selfCode
-                outDict["content"] = "[WELCOME FIRECAT] YOU ARE"
+                outDict["content"] = "[WELCOME TO FIRECAT] YOU ARE"
                 db.insert(outDict)
                 first = 0
             print(title)
@@ -86,7 +85,7 @@ if __name__ == '__main__':
             if first == 1:  # get self code
                 selfCode = getUserCodeList(line)
                 outDict["user"] = selfCode
-                outDict["content"] = "[WELCOME FIRECAT] YOU ARE"
+                outDict["content"] = "[WELCOME TO FIRECAT] YOU ARE"
                 db.insert(outDict)
                 first = 0
             print(line)
