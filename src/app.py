@@ -2,6 +2,9 @@ from requests import request
 from flask import Flask, request, render_template, redirect, url_for
 import json
 from tinydb import TinyDB
+import logging
+log = logging.getLogger('werkzeug')
+log.setLevel(logging.ERROR)
 app = Flask(__name__)
 
 @app.route("/",methods=["GET", "POST"])

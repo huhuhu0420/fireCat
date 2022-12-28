@@ -30,6 +30,7 @@ def clearFile (fileName: str) -> None:
 if __name__ == '__main__':
     fileName="1.txt"
     clearFile("chat.txt")
+    clearFile("1.json")
     db = TinyDB('1.json')  # init db
     db.truncate()  # clear db
     
