@@ -1,14 +1,80 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <title>Login</title>
+    <link rel="stylesheet" href="../static/login.css">
 </head>
+
 <body>
-  <h1>login</h1>
-  <form action="/" method="post">
-      <h2>Enter ip:</h2>
-      <p><input type="text" name="ip" /></p>
-      <p><input type="submit" value="submit" /></p>
-  </form>
+    <div class="topbar">
+        <div class="horo">
+            <div class="aboutGoogle">
+                <a href="https://about.google/?fg=1&amp;utm_source=google-&amp;utm_medium=referral&amp;utm_campaign=hp-header"
+                    data-jsarwt="1" data-usg="AOvVaw06Jrlll4P9QmFESZ1y_7NP"
+                    data-ved="0ahUKEwiqyKLWnJb8AhXIE4gKHZaKAtgQkNQCCAI">關於
+                    Google</a>
+            </div>
+            <div class="aboutGoogle">
+                <a href="https://store.google.com/?utm_source=hp_header&amp;utm_medium=google_ooo&amp;utm_campaign=GS100042&amp;hl=zh-TW-"
+                    data-jsarwt="1" data-usg="AOvVaw2ZZEIvfnNKng0wfbexeK3w"
+                    data-ved="0ahUKEwiqyKLWnJb8AhXIE4gKHZaKAtgQpMwCCAM">Google 商店</a>
+            </div>
+        </div>
+
+        <!-- top right -->
+        <div class="right">
+            <div class="aboutGoogle gmail">
+                <a class="gmail" href="https://mail.google.com/mail/?authuser=0&ogbl" data-jsarwt="1"
+                    data-usg="AOvVaw06Jrlll4P9QmFESZ1y_7NP"
+                    data-ved="0ahUKEwiqyKLWnJb8AhXIE4gKHZaKAtgQkNQCCAI">Gamil</a>
+            </div>
+            <div class="aboutGoogle picture">
+                <a href="https://www.google.com.tw/imghp?hl=zh-TW&authuser=0&ogbl" data-jsarwt="1"
+                    data-usg="AOvVaw06Jrlll4P9QmFESZ1y_7NP" data-ved="0ahUKEwiqyKLWnJb8AhXIE4gKHZaKAtgQkNQCCAI">圖片</a>
+            </div>
+
+            <div class="aboutGoogle">
+                <a id="dots"
+                    href="https://store.google.com/?utm_source=hp_header&amp;utm_medium=google_ooo&amp;utm_campaign=GS100042&amp;hl=zh-TW-"
+                    data-jsarwt="1" data-usg="AOvVaw2ZZEIvfnNKng0wfbexeK3w"
+                    data-ved="0ahUKEwiqyKLWnJb8AhXIE4gKHZaKAtgQpMwCCAM">
+                    <svg class="gb_0e" focusable="false" viewBox="0 0 24 24">
+                        <path
+                            d="M6,8c1.1,0 2,-0.9 2,-2s-0.9,-2 -2,-2 -2,0.9 -2,2 0.9,2 2,2zM12,20c1.1,0 2,-0.9 2,-2s-0.9,-2 -2,-2 -2,0.9 -2,2 0.9,2 2,2zM6,20c1.1,0 2,-0.9 2,-2s-0.9,-2 -2,-2 -2,0.9 -2,2 0.9,2 2,2zM6,14c1.1,0 2,-0.9 2,-2s-0.9,-2 -2,-2 -2,0.9 -2,2 0.9,2 2,2zM12,14c1.1,0 2,-0.9 2,-2s-0.9,-2 -2,-2 -2,0.9 -2,2 0.9,2 2,2zM16,6c0,1.1 0.9,2 2,2s2,-0.9 2,-2 -0.9,-2 -2,-2 -2,0.9 -2,2zM12,8c1.1,0 2,-0.9 2,-2s-0.9,-2 -2,-2 -2,0.9 -2,2 0.9,2 2,2zM18,14c1.1,0 2,-0.9 2,-2s-0.9,-2 -2,-2 -2,0.9 -2,2 0.9,2 2,2zM18,20c1.1,0 2,-0.9 2,-2s-0.9,-2 -2,-2 -2,0.9 -2,2 0.9,2 2,2z">
+                        </path>
+                    </svg>
+                </a>
+            </div>
+            <div class="loginButton">
+                <a class="loginButton"
+                    href="https://accounts.google.com/ServiceLogin?hl=zh-TW&amp;passive=true&amp;continue=https://www.google.com/&amp;ec=GAZAmgQ"
+                    target="_top">登入</a>
+            </div>
+        </div>
+
+    </div>
+
+    </div>
+
+
+    <img class="googleIcon"
+        src="https://www.google.com/images/branding/googlelogo/1x/googlelogo_light_color_272x92dp.png" alt="google">
+    <div class="searchInput">
+        <form class="searchInput" action="/" method="post">
+            <div class="searchIcon">
+                <buttom calss="submit" type="submit" value="submit">
+                    <!-- <input type="submit" value="submit" /> -->
+                    <svg focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path
+                            d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z">
+                        </path>
+                    </svg>
+                </buttom>
+            </div>
+            <input class="searchInput" type="text" name="ip" />
+        </form>
+    </div>
 </body>
+
 </html>
