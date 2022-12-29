@@ -1,23 +1,17 @@
 # fireCat
 
-## python requirement
-* flask
-* time 
-* pexpect
+## set env
+* pip install -r requirement.txt
+* hope you have firefox
 
-## self test
-1. ncat -l 1234 --chat &nbsp;  //server listen
-2. flask --debug run --host=0.0.0.0, open webpage and go to /chat
-3. python3 connectNcat.py
-4. type sth in the chat box, u can see the content in json file 
-
-## TODO 
-* file rename 
-* need js to read json data and display on the webpage
-* prettier webpage
-* bug fix
-  * self user code not correct
-* switch txt(json) to db
-
-## architecture
-![](./architecture.jpg)
+## usage
+### host:
+* ncat -l 1234 --chat
+### client: 
+* chmod +x run.sh
+* ./run.sh
+* type host ip CORRECTLY in the serch bar
+* your user id will show in the first chat content
+* type sth in the serch bar
+* enjoy your chat
+  
