@@ -9,15 +9,20 @@
   function send() {
     console.log("send")
     let text = document.querySelector("#input").value
-    let data = {
-      "name": "client1",
-      "text": text,
+    if (text == '') {
+
+    } else {
+      let data = {
+        "name": "client1",
+        "text": text,
+      }
+      console.log(data)
+      let xhr = new XMLHttpRequest()
+      xhr.open("POST", "/post")
+      xhr.setRequestHeader('Content-type', 'application/json');
+      xhr.send(JSON.stringify(data))
+      document.querySelector("#input").value = ''
     }
-    console.log(data)
-    let xhr = new XMLHttpRequest()
-    xhr.open("POST", "/post")
-    xhr.setRequestHeader('Content-type', 'application/json');
-    xhr.send(JSON.stringify(data))
   }
   function update() {
     let xhr = new XMLHttpRequest()
