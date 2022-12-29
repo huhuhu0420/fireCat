@@ -38,10 +38,6 @@ def loginPage ():
 def chatPage():
     return render_template("chat.html")
 
-@app.route("/hello")
-def hello():
-    return render_template('hello.html')
-
 @app.route('/post', methods=[ 'POST'])
 def pushInfo():
     print(request.data)
@@ -59,7 +55,6 @@ def getInfo():
     with open ('1.json', 'r+') as file:
         data=file.read()
     response = app.response_class(
-        # response=json.dumps(data),
         response=data,
         status=200,
         mimetype='application/json'

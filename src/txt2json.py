@@ -1,5 +1,4 @@
 import time
-import json
 import sys
 from tinydb import TinyDB, where
 
