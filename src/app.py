@@ -1,11 +1,17 @@
 from requests import request
 from flask import Flask, request, render_template, redirect, url_for
-import json
 from tinydb import TinyDB
+import json
 import logging
+import pexpect
+
+ncat = None
+text = None
 log = logging.getLogger('werkzeug')
 log.setLevel(logging.ERROR)
 app = Flask(__name__)
+db = TinyDB('1.json')  # init db
+db.truncate()  # clear db
 
 @app.route("/",methods=["GET", "POST"])
 def loginPage ():
@@ -13,6 +19,17 @@ def loginPage ():
         ip = request.form['ip']
         print("post : ip => ", ip)
         ipData = {"ip":ip}
+        global ncat
+        if(ncat == None):
+            fileName = "1.txt"
+            print("ncat")
+            ncat = pexpect.spawnu('ncat ' + ip + ' 1234 -o '+ fileName)
+            ncat.timeout = 3000   # avoid timeout too quick 
+        global text
+        if text == None:
+            text = pexpect.spawnu('python3 src/txt2json.py ' + fileName +' 1.json')
+            text.timeout = 3000
+            
         db.insert(ipData)
         return render_template("chat.html")
     if request.method == 'GET':
@@ -32,15 +49,9 @@ def pushInfo():
     print(request.data)
     newMessage=json.loads(request.data)
     print(newMessage["name"])
-    with open ('chat.txt', 'a') as file:
-        print(newMessage['text'])
-        file.writelines(newMessage['text'])
-    # with open ('data.json', 'r+') as file:
-    #     data=file.read()
-    #     data=json.loads(data)
-    #     data.append(newMessage)
-    #     with open ('data.json', 'w') as Writefile:
-    #         Writefile.write(json.dumps(data))
+    global ncat
+    if(ncat!=None):
+        ncat.sendline(newMessage["text"])
 
     return "ok"
 
@@ -58,5 +69,4 @@ def getInfo():
     return response 
 
 if __name__ == '__main__':
-    db = TinyDB('1.json')  # init db
     app.run()
