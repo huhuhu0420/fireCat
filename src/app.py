@@ -18,7 +18,6 @@ def loginPage ():
     if request.method == 'POST':
         ip = request.form['ip']
         print("post : ip => ", ip)
-        ipData = {"ip":ip}
         global ncat
         if(ncat == None):
             fileName = "1.txt"
@@ -29,9 +28,8 @@ def loginPage ():
         if text == None:
             text = pexpect.spawnu('python3 src/txt2json.py ' + fileName +' 1.json')
             text.timeout = 3000
-            
-        db.insert(ipData)
         return render_template("chat.html")
+
     if request.method == 'GET':
         return render_template("login.html")
     
