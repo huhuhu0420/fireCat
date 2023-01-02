@@ -17,6 +17,17 @@ function send() {
     if (text.split(' ')[0] === '!set') {
       jeLongIp = text.split(' ')[1]
       document.querySelector("#input").value = ''
+
+      let data1 = {
+        "name": "newjeLong",
+        "text": "connect to " + jeLongIp,
+      }
+      console.log(data1)
+      let xhr1 = new XMLHttpRequest()
+      xhr1.open("POST", "/post")
+      xhr1.setRequestHeader('Content-type', 'application/json');
+      xhr1.send(JSON.stringify(data1))
+      document.querySelector("#input").value = ''
     } else if (text.split(' ')[0] === '!new' && text.split(' ').length === 3) {
       let tmp = text.split(' ')
       let data = {
@@ -41,31 +52,30 @@ function send() {
       document.querySelector("#input").value = ''
 
     } else if (text.split(' ')[0] === '!get') {
+      document.querySelector("#input").value = ''
       if (text.split(' ').length === 1) {
 
         let xhr = new XMLHttpRequest()
         xhr.open("GET", 'http://' + jeLongIp + "/threads", true)
         xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
-        console.log("AAAAAAAAAAA")
-        console.log(xhr)
         xhr.setRequestHeader('Access-Control-Allow-Origin', 'http://' + jeLongIp);
         xhr['Access-Control-Allow-Origin'] = 'http://' + jeLongIp;
-        console.log(xhr)
         xhr.send()
-        console.log(xhr)
         xhr.onload = () => {
           let data = JSON.parse(xhr.response)
-          console.log(data)
-          let data1 = {
-            "name": data['name'],
-            "text": data['data'],
-          }
-          console.log(data1)
-          let xhr1 = new XMLHttpRequest()
-          xhr1.open("POST", "/post")
-          xhr1.setRequestHeader('Content-type', 'application/json');
-          xhr1.send(JSON.stringify(data1))
-          document.querySelector("#input").value = ''
+          data.forEach(element => {
+            let data1 = {
+              "name": 'jelong',
+              "text": element['data'],
+            }
+            console.log(data1)
+            let xhr1 = new XMLHttpRequest()
+            xhr1.open("POST", "/post")
+            xhr1.setRequestHeader('Content-type', 'application/json');
+            xhr1.send(JSON.stringify(data1))
+            document.querySelector("#input").value = ''
+
+          });
         }
       } else {
         let tmp = text.split(' ')[1]
@@ -86,15 +96,13 @@ function send() {
           xhr1.setRequestHeader('Content-type', 'application/json');
           xhr1.send(JSON.stringify(data1))
           document.querySelector("#input").value = ''
-
-
         }
-
       }
 
 
 
     } else if (text.split(' ')[0] === '!je') {
+      document.querySelector("#input").value = ''
       let longId = text.split(' ')[1]
       let continuw_word = text.split(' ')[2]
 
@@ -105,30 +113,30 @@ function send() {
       xhr.open("POST", 'http://' + jeLongIp + "/threads/" + longId + '/continue')
       xhr.setRequestHeader('Content-type', 'application/json');
       xhr.send(JSON.stringify(data))
-      let data1 = {
-        "name": longId,
-        "text": continuw_word,
-      }
       xhr.onload = () => {
         console.log("update scuss")
-        let tmp = JSON.parse(xhr.response)
-        data1['text'] = tmp['message']
+        let data = JSON.parse(xhr.response)
+        console.log(data)
+        let data1 = {
+          "name": "newjeLong",
+          "text": data['message'],
+        }
+        console.log(data1)
+        let xhr1 = new XMLHttpRequest()
+        xhr1.open("POST", "/post")
+        xhr1.setRequestHeader('Content-type', 'application/json');
+        xhr1.send(JSON.stringify(data1))
+
 
       }
 
-      console.log(data1)
-      let xhr1 = new XMLHttpRequest()
-      xhr1.open("POST", "/post")
-      xhr1.setRequestHeader('Content-type', 'application/json');
-      xhr1.send(JSON.stringify(data1))
-      document.querySelector("#input").value = ''
 
 
 
     } else if (text.split(' ')[0] === '!h1') {
       let data = {
         "name": "jeLong",
-        "text": '!gets get all long; !get name to get long; !h2 to get other help',
+        "text": '!get all long; !get {longname} ;!je {longname} {word}',
       }
       console.log(data)
       let xhr = new XMLHttpRequest()
@@ -140,7 +148,7 @@ function send() {
     } else {
       let data = {
         "name": "jeLong",
-        "text": '!set to set serverip; !new name rule to set newlong; !h1 to get other help',
+        "text": '!set {ip:port}to set serverip; !new {longname} {rule} to set newlong; !h1 :to get other help',
       }
       console.log(data)
       let xhr = new XMLHttpRequest()
@@ -189,7 +197,7 @@ function update() {
       buf = ''
       for (const key1 in element) {
         if (key1 == 'content') {
-          block.innerHTML = "<li ><a href='https://www.youtube.com/watch?v=XA-D0jY0Z9w'> " + "<h3>" + element[key1] + buf + block.innerHTML;
+          block.innerHTML = "<li ><a href='https://www.youtube.com/watch?v=dQw4w9WgXcQ'> " + "<h3>" + element[key1] + buf + block.innerHTML;
         }
         else if (key1 == 'user') {
           buf += " -user" + element[key1] + "</h3></a>" + "</li > ";
