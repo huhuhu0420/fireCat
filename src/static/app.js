@@ -14,16 +14,17 @@ function send() {
   if (text === '') {
 
   } else if (text[0] === '!') {
-    if (text.substring(0, 3) === '!set') {
-      jeLongIp = text.substring(4, text.length - 1)
-    } else if (text.substring(0, newlong) === '!new' && text.split(' ').length === 3) {
+    if (text.split(' ')[0] === '!set') {
+      jeLongIp = text.split(' ')[1]
+      document.querySelector("#input").value = ''
+    } else if (text.split(' ')[0] === '!new' && text.split(' ').length === 3) {
       let tmp = text.split(' ')
       let data = {
         "name": tmp[1],
         "rule_type": tmp[2]
       }
       let xhr = new XMLHttpRequest()
-      xhr.open("POST", jeLongIp + "/threads")
+      xhr.open("POST", 'http://' + jeLongIp + "/threads/")
       xhr.setRequestHeader('Content-type', 'application/json');
       xhr.send(JSON.stringify(data))
       document.querySelector("#input").value = ''
@@ -38,7 +39,87 @@ function send() {
       xhr1.setRequestHeader('Content-type', 'application/json');
       xhr1.send(JSON.stringify(data1))
       document.querySelector("#input").value = ''
-    } else if (text.split()[0] === '!h1') {
+
+    } else if (text.split(' ')[0] === '!get') {
+      if (text.split(' ').length === 1) {
+
+        let xhr = new XMLHttpRequest()
+        xhr.open("GET", 'http://' + jeLongIp + "/threads", true)
+        xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
+        console.log("AAAAAAAAAAA")
+        console.log(xhr)
+        xhr.setRequestHeader('Access-Control-Allow-Origin', 'http://' + jeLongIp);
+        xhr['Access-Control-Allow-Origin'] = 'http://' + jeLongIp;
+        console.log(xhr)
+        xhr.send()
+        console.log(xhr)
+        xhr.onload = () => {
+          let data = JSON.parse(xhr.response)
+          console.log(data)
+          let data1 = {
+            "name": data['name'],
+            "text": data['data'],
+          }
+          console.log(data1)
+          let xhr1 = new XMLHttpRequest()
+          xhr1.open("POST", "/post")
+          xhr1.setRequestHeader('Content-type', 'application/json');
+          xhr1.send(JSON.stringify(data1))
+          document.querySelector("#input").value = ''
+        }
+      } else {
+        let tmp = text.split(' ')[1]
+        let xhr = new XMLHttpRequest()
+        xhr.open("GET", 'http://' + jeLongIp + "/threads/" + tmp)
+        xhr.send()
+        xhr.onload = () => {
+          console.log("update scuss")
+          let data = JSON.parse(xhr.response)
+          console.log(data)
+          let data1 = {
+            "name": "newjeLong",
+            "text": tmp[2],
+          }
+          console.log(data1)
+          let xhr1 = new XMLHttpRequest()
+          xhr1.open("POST", "/post")
+          xhr1.setRequestHeader('Content-type', 'application/json');
+          xhr1.send(JSON.stringify(data1))
+          document.querySelector("#input").value = ''
+
+
+        }
+
+      }
+
+
+
+    } else if (text.split(' ')[0] === '!je') {
+      let longId = text.split(' ')[1]
+      let continuw_word = text.split(' ')[2]
+
+      let data = {
+        "continue_word": continuw_word
+      }
+      let xhr = new XMLHttpRequest()
+      xhr.open("POST", 'http://' + jeLongIp + "/threads/" + longId + '/continue')
+      xhr.setRequestHeader('Content-type', 'application/json');
+      xhr.send(JSON.stringify(data))
+
+      let data1 = {
+        "name": longId,
+        "text": continuw_word,
+      }
+      console.log(data1)
+      let xhr1 = new XMLHttpRequest()
+      xhr1.open("POST", "/post")
+      xhr1.setRequestHeader('Content-type', 'application/json');
+      xhr1.send(JSON.stringify(data1))
+      document.querySelector("#input").value = ''
+
+
+
+    } else if (text.split(' ')[0] === '!h1') {
       let data = {
         "name": "jeLong",
         "text": '!gets get all long; !get name to get long; !h2 to get other help',
