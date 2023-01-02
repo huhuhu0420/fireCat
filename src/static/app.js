@@ -21,7 +21,7 @@ function send() {
       let tmp = text.split(' ')
       let data = {
         "name": tmp[1],
-        "rule_type": tmp[2]
+        "rule_type": 'jsp'
       }
       let xhr = new XMLHttpRequest()
       xhr.open("POST", 'http://' + jeLongIp + "/threads/")
@@ -78,7 +78,7 @@ function send() {
           console.log(data)
           let data1 = {
             "name": "newjeLong",
-            "text": tmp[2],
+            "text": data['data'],
           }
           console.log(data1)
           let xhr1 = new XMLHttpRequest()
@@ -105,11 +105,17 @@ function send() {
       xhr.open("POST", 'http://' + jeLongIp + "/threads/" + longId + '/continue')
       xhr.setRequestHeader('Content-type', 'application/json');
       xhr.send(JSON.stringify(data))
-
       let data1 = {
         "name": longId,
         "text": continuw_word,
       }
+      xhr.onload = () => {
+        console.log("update scuss")
+        let tmp = JSON.parse(xhr.response)
+        data1['text'] = tmp['message']
+
+      }
+
       console.log(data1)
       let xhr1 = new XMLHttpRequest()
       xhr1.open("POST", "/post")
