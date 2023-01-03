@@ -182,6 +182,7 @@ function send() {
     document.querySelector("#input").value = ''
   }
 }
+let maxlen = -1;
 function update() {
   let xhr = new XMLHttpRequest()
   xhr.open("GET", "/get")
@@ -191,11 +192,15 @@ function update() {
     let data = JSON.parse(xhr.response)
     console.log(data)
     let block = document.querySelector("#context")
-    block.innerHTML = ""
     let copyPastaIndex = 0;
 
     data = data["_default"]
+    let i = 0;
     for (const key in data) {
+      if (i++ < maxlen) continue
+
+      maxlen = i;
+
       let element = data[key];
       if (copyPastaIndex >= copyPasta.length) {
         copyPastaIndex = 0;
