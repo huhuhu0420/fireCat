@@ -32,24 +32,31 @@ function send() {
       let tmp = text.split(' ')
       let data = {
         "name": tmp[1],
-        "rule_type": 'jsp'
+        "rule_type": 'English'
       }
+
       let xhr = new XMLHttpRequest()
-      xhr.open("POST", 'http://' + jeLongIp + "/threads/")
+      xhr.open("POST", 'http://' + jeLongIp + "/threads")
       xhr.setRequestHeader('Content-type', 'application/json');
+      xhr.setRequestHeader('Access-Control-Allow-Origin', 'http://' + jeLongIp);
       xhr.send(JSON.stringify(data))
       document.querySelector("#input").value = ''
+      xhr.onload = () => {
+        let data = JSON.parse(xhr.response)
+        let data1 = {
+          "name": 'jelong',
+          "text": data['message'],
+        }
+        console.log(data1)
+        let xhr1 = new XMLHttpRequest()
+        xhr1.open("POST", "/post")
+        xhr1.setRequestHeader('Content-type', 'application/json');
+        xhr1.send(JSON.stringify(data1))
+        document.querySelector("#input").value = ''
 
-      let data1 = {
-        "name": "newjeLong",
-        "text": tmp[2],
       }
-      console.log(data1)
-      let xhr1 = new XMLHttpRequest()
-      xhr1.open("POST", "/post")
-      xhr1.setRequestHeader('Content-type', 'application/json');
-      xhr1.send(JSON.stringify(data1))
-      document.querySelector("#input").value = ''
+
+
 
     } else if (text.split(' ')[0] === '!get') {
       document.querySelector("#input").value = ''
