@@ -73,7 +73,7 @@ function send() {
           data.forEach(element => {
             let data1 = {
               "name": 'jelong',
-              "text": element['data'],
+              "text": element['thread_id'] + ":/" + element['dbcon'],
             }
             console.log(data1)
             let xhr1 = new XMLHttpRequest()
@@ -95,7 +95,7 @@ function send() {
           console.log(data)
           let data1 = {
             "name": "newjeLong",
-            "text": data['data'],
+            "text": data['thread_id'] + ":/" + data['dbcon'],
           }
           console.log(data1)
           let xhr1 = new XMLHttpRequest()
